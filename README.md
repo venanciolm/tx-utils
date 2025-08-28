@@ -1,2 +1,5 @@
-# JMS Spring RA
+# TX Utils
+
+JTA utils for Spring
+
  
