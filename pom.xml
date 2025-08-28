@@ -28,6 +28,11 @@
 		<!-- -->
 		<!-- Versions -->
 		<!-- -->
+		<jakarta.transaction-api.VERSION>2.0.1</jakarta.transaction-api.VERSION>
+		<jakarta.resource-api.VERSION>2.1.0</jakarta.resource-api.VERSION>
+		<jakarta.jms-api.VERSION>3.1.0</jakarta.jms-api.VERSION>
+		<hibernate-core.VERSION>6.6.22.Final</hibernate-core.VERSION>
+		<org.springframework.VERSION>6.2.9</org.springframework.VERSION>
 		<org.slf4j.VERSION>2.0.17</org.slf4j.VERSION>
 		<log4j.VERSION>2.24.3</log4j.VERSION>
 	</properties>
@@ -75,9 +80,49 @@
 	</developers>
 	<dependencies>
 		<dependency>
+			<groupId>jakarta.transaction</groupId>
+			<artifactId>jakarta.transaction-api</artifactId>
+			<version>${jakarta.transaction-api.VERSION}</version>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.resource</groupId>
+			<artifactId>jakarta.resource-api</artifactId>
+			<version>${jakarta.resource-api.VERSION}</version>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.jms</groupId>
+			<artifactId>jakarta.jms-api</artifactId>
+			<version>${jakarta.jms-api.VERSION}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${org.slf4j.VERSION}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${org.slf4j.VERSION}</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate-core.VERSION}</version>
+			<scope>provided</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${org.springframework.VERSION}</version>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-jcl</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
@@ -89,12 +134,6 @@
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
 			<version>${log4j.VERSION}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>${org.slf4j.VERSION}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
