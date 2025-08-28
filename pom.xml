@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.farmafene.j2ee</groupId>
 	<artifactId>tx-utils</artifactId>
-	<version>1.0.0-m0</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>${project.groupId}:${project.artifactId}</name>
 	<description><![CDATA[JTA utils for Spring]]></description>
 	<url><![CDATA[https://github.com/venanciolm/tx-utils]]></url>
@@ -35,7 +35,7 @@
 		<log4j.VERSION>2.24.3</log4j.VERSION>
 	</properties>
 	<scm>
-		<tag>1.0.0-m0</tag>
+		<tag>HEAD</tag>
 		<url><![CDATA[https://github.com/venanciolm/tx-utils]]></url>
 		<connection><![CDATA[scm:git:https://github.com/venanciolm/tx-utils.git]]></connection>
 		<developerConnection><![CDATA[scm:git:https://github.com/venanciolm/tx-utils.git]]></developerConnection>
