@@ -1,0 +1,64 @@
+<!DOCTYPE xml>
+<!-- -->
+<!-- -->
+<!-- https://logging.apache.org/log4j/2.x/manual/configuration.html -->
+<!-- https://logging.apache.org/log4j/2.x/manual/layouts.html -->
+<!-- -->
+<Configuration status="info" name="TEST"
+	monitorInterval="5">
+	<Appenders>
+		<Console name="CONSOLE" target="SYSTEM_OUT" direct="true"
+			ignoreExceptions="false">
+			<PatternLayout
+				pattern="%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX}[%-5level][%t] %c{3.4}{-3}:%L - %m%n" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Logger name="com.farmafene.commons.tx.jdbc.XAResourceJdbc"
+			level="TRACE" additivity="false">
+			<AppenderRef ref="CONSOLE" />
+		</Logger>
+		<Logger name="com.farmafene" level="DEBUG" additivity="false">
+			<AppenderRef ref="CONSOLE" />
+		</Logger>
+		<Logger name="org.tranql.connector.AbstractManagedConnection" level="TRACE"
+			additivity="false">
+			<AppenderRef ref="CONSOLE" />
+		</Logger>
+		<Logger name="org.tranql.connector" level="DEBUG"
+			additivity="false">
+			<AppenderRef ref="CONSOLE" />
+		</Logger>
+		<Logger
+			name="org.apache.activemq.artemis.core.client.impl.ClientSessionImpl"
+			level="TRACE" additivity="false">
+			<AppenderRef ref="CONSOLE" />
+		</Logger>
+		<Logger
+			name="org.apache.activemq.artemis.ra.ActiveMQRASessionFactoryImpl"
+			level="TRACE" additivity="false">
+			<AppenderRef ref="CONSOLE" />
+		</Logger>
+		<Logger
+			name="org.apache.activemq.artemis.ra.ActiveMQRAXAResource"
+			level="TRACE" additivity="false">
+			<AppenderRef ref="CONSOLE" />
+		</Logger>
+		<Logger
+			name="org.apache.activemq.artemis.ra.ActiveMQRALocalTransaction"
+			level="TRACE" additivity="false">
+			<AppenderRef ref="CONSOLE" />
+		</Logger>
+		<Logger name="org.apache.activemq.artemis.ra" level="DEBUG"
+			additivity="false">
+			<AppenderRef ref="CONSOLE" />
+		</Logger>
+		<Logger name="org.springframework.transaction" level="DEBUG"
+			additivity="false">
+			<AppenderRef ref="CONSOLE" />
+		</Logger>
+		<Root level="INFO">
+			<AppenderRef ref="CONSOLE" />
+		</Root>
+	</Loggers>
+</Configuration>

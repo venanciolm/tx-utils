@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.farmafene.j2ee</groupId>
 	<artifactId>tx-utils</artifactId>
@@ -26,6 +28,7 @@
 		<!-- -->
 		<!-- Versions -->
 		<!-- -->
+		<spring-boot.version>3.5.4</spring-boot.version>
 		<jakarta.transaction-api.VERSION>2.0.1</jakarta.transaction-api.VERSION>
 		<jakarta.resource-api.VERSION>2.1.0</jakarta.resource-api.VERSION>
 		<jakarta.jms-api.VERSION>3.1.0</jakarta.jms-api.VERSION>
@@ -33,6 +36,10 @@
 		<org.springframework.VERSION>6.2.9</org.springframework.VERSION>
 		<org.slf4j.VERSION>2.0.17</org.slf4j.VERSION>
 		<log4j.VERSION>2.24.3</log4j.VERSION>
+		<org.apache.activemq.version>2.40.0</org.apache.activemq.version>
+		<geronimo.components.version>4.0.0</geronimo.components.version>
+		<HikariCP.version>6.3.1</HikariCP.version>
+		<farmafene.j2ee.tranql-connector-jakarta.version>2.0.2</farmafene.j2ee.tranql-connector-jakarta.version>
 	</properties>
 	<scm>
 		<tag>HEAD</tag>
@@ -72,6 +79,12 @@
 		<developer>
 			<name>Venancio López Martínez</name>
 			<email>venanciolm -at- gmail.com</email>
+			<organization>farmafene</organization>
+			<organizationUrl>http://farmafene.com</organizationUrl>
+		</developer>
+		<developer>
+			<name>Venancio López Martínez</name>
+			<email>vlopez -at- farmafene.com</email>
 			<organization>farmafene</organization>
 			<organizationUrl>http://farmafene.com</organizationUrl>
 		</developer>
@@ -123,6 +136,22 @@
 			</exclusions>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<version>${spring-boot.version}</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-classic</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-to-slf4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-slf4j2-impl</artifactId>
 			<version>${log4j.VERSION}</version>
@@ -132,6 +161,66 @@
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
 			<version>${log4j.VERSION}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+			<version>${org.springframework.VERSION}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>2.7.3</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>artemis-jakarta-ra</artifactId>
+			<version>${org.apache.activemq.version}</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>artemis-server</artifactId>
+			<version>${org.apache.activemq.version}</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>${HikariCP.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.geronimo.components</groupId>
+			<artifactId>geronimo-transaction</artifactId>
+			<version>${geronimo.components.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.geronimo.components</groupId>
+			<artifactId>geronimo-connector</artifactId>
+			<version>${geronimo.components.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.farmafene.j2ee</groupId>
+			<artifactId>tranql-connector-jakarta</artifactId>
+			<version>${farmafene.j2ee.tranql-connector-jakarta.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
